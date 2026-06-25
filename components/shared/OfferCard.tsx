@@ -2,13 +2,16 @@
 import clsx from "clsx";
 import {OfferType} from "@/types/offer";
 import {useSavedOffersStore} from "@/stores/savedOffersStore";
+import Link from "next/link";
 
 export default function OfferCard({offer}: {offer: OfferType}) {
   const { addOffer, removeOffer, isSaved } = useSavedOffersStore()
 
   return (
+    <Link href={`/offer/${offer.id}`}>
     <div className={clsx(
-      "w-96 h-60 bg-black border-4 border-red-400"
+      "w-96 h-60 bg-black border-4 border-red-400 " +
+      "cursor-pointer"
     )}>
       <div className="w-full h-full flex flex-col items-start justify-evenly py-4 px-5">
         <div className="w-full flex flex-row justify-between">
@@ -37,5 +40,6 @@ export default function OfferCard({offer}: {offer: OfferType}) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }

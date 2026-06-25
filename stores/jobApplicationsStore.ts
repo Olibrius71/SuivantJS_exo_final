@@ -11,8 +11,8 @@ interface JobApplicationsStoreType {
 export const useJobApplicationsStore = create<JobApplicationsStoreType>()(
   persist((set, get) => ({
     jobApplications: [],
-    addJobApplication: (jobApplication: JobApplicationType) => {},
-    removeJobApplication: (jobApplication: JobApplicationType) => {},
+    addJobApplication: (jobApplication: JobApplicationType) => set({ jobApplications: [...get().jobApplications, jobApplication] }),
+    removeJobApplication: (jobApplication: JobApplicationType) => set({ jobApplications: get().jobApplications.filter(app => app.id !== jobApplication.id) }),
   }),
   {
     name: "job-applications"
