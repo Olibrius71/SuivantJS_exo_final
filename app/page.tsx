@@ -4,15 +4,10 @@ import {OfferType} from "@/types/offer";
 import Button from "@/components/shared/Button";
 import ButtonLink from "@/components/shared/ButtonLink";
 import Title from "@/components/shared/Title";
+import {useOffersStore} from "@/stores/offersStore";
+import OffersList from "@/components/shared/OffersList";
 
 export default function Home() {
-  const testOffer: OfferType = {
-    id: 1,
-    title: "Tite dslfn slfksf",
-    description: "ssfsf",
-    publicationDate: new Date(),
-  }
-
   return (
     <div className="w-full flex flex-col">
       <div className="w-full">
@@ -22,16 +17,7 @@ export default function Home() {
       <div className="flex flex-col px-10 py-4 gap-12">
         <Title titleText="Nos dernières opportunités" />
 
-        <div className="flex flex-row justify-center flex-wrap gap-3">
-          <OfferCard offer={testOffer} />
-          <OfferCard offer={testOffer} />
-          <OfferCard offer={testOffer} />
-          <OfferCard offer={testOffer} />
-          <OfferCard offer={testOffer} />
-          <OfferCard offer={testOffer} />
-          <OfferCard offer={testOffer} />
-          <OfferCard offer={testOffer} />
-        </div>
+        <OffersList />
 
         <div className="flex flex-col items-center">
           <ButtonLink text="Voir toutes les offres" href="/all-offers" />

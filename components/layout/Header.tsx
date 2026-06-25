@@ -8,6 +8,10 @@ export default function Header() {
       </Link>
 
       <div className="flex flex-row gap-12">
+        <Link href="/management">
+          <div>Gestion</div>
+        </Link>
+
         <Link href="/profile">
           <div>🐵</div>
         </Link>

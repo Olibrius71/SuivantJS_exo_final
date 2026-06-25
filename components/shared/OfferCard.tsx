@@ -22,7 +22,9 @@ export default function OfferCard({offer}: {offer: OfferType}) {
 
         <div>
           <span className="material-symbols-outlined">calendar_month</span>
-          <span className="ms-2">{offer.publicationDate.toDateString()}</span>
+          <span className="ms-2"> {offer.publicationDate
+            ? new Date(offer.publicationDate).toDateString()
+            : "Date inconnue"}</span>
         </div>
 
         <div>

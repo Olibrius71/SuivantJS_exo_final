@@ -2,26 +2,18 @@ import ButtonLink from "@/components/shared/ButtonLink";
 import Title from "@/components/shared/Title";
 import OfferCard from "@/components/shared/OfferCard";
 import {OfferType} from "@/types/offer";
+import OffersListByTechno from "@/app/offers-by-techno/[id]/_components/OffersListByTechno";
+import TitleWithTechno from "@/app/offers-by-techno/[id]/_components/TitleWithTechno";
 
-export default function OffersByTechno() {
-  const testOffer: OfferType = {
-    id: 1,
-    title: "Tite dslfn slfksf",
-    description: "ssfsf",
-    publicationDate: new Date(),
-  }
+export default async function OffersByTechno({ params}: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
 
   return (
     <div className="flex flex-col gap-16 px-20 py-6">
       <ButtonLink href="/all-offers" text="Voir toutes les offres" iconLeft={<span className="material-symbols-outlined">arrow_back</span>} />
-      <Title titleText="Offres pour la technologie ''" />
+      <TitleWithTechno idOfTechnology={Number(id)} />
 
-      <div className="flex flex-row justify-center flex-wrap gap-3">
-        <OfferCard offer={testOffer} />
-        <OfferCard offer={testOffer} />
-        <OfferCard offer={testOffer} />
-
-      </div>
+      <OffersListByTechno idOfTechnology={Number(id)} />
     </div>
   );
 }
