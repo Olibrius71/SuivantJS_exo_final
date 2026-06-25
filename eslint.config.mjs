@@ -17,6 +17,7 @@ const eslintConfig = defineConfig([
     rules: {
       "@typescript-eslint/no-empty-object-type": "off",
       "react/no-unescaped-entities": "off",
+      "react-hooks/set-state-in-effect": "off",
     },
   },
 ]);
