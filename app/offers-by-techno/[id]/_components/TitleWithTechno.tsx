@@ -1,3 +1,4 @@
+"use client";
 import Title from "@/components/shared/Title";
 import {useTechnologiesStore} from "@/stores/technologiesStore";
 import {useEffect} from "react";
